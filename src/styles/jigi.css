@@ -1,0 +1,113 @@
+/* Charte Association Jigi (cahier des charges, section 7) appliquée à Bootstrap 5.3. */
+:root {
+  --jigi-terracotta: #a8431f;
+  --jigi-brun: #2e1f1a;
+  --jigi-soleil: #f0b03b;
+  --jigi-pousse: #3f7a4a;
+  --jigi-creme: #fbf6ee;
+  --jigi-sable: #f1e6d3;
+  --jigi-erreur: #b3261e;
+
+  --bs-primary: #a8431f;
+  --bs-primary-rgb: 168, 67, 31;
+  --bs-success: #3f7a4a;
+  --bs-success-rgb: 63, 122, 74;
+  --bs-danger: #b3261e;
+  --bs-danger-rgb: 179, 38, 30;
+  --bs-body-bg: #fbf6ee;
+  --bs-body-color: #2e1f1a;
+  --bs-body-color-rgb: 46, 31, 26;
+  --bs-secondary-color: #5c4a42;
+  --bs-body-font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  --bs-link-color: #a8431f;
+  --bs-link-hover-color: #7d3016;
+  --bs-border-color: #cdb99a;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-name {
+  font-family: 'Trebuchet MS', Verdana, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.btn-primary {
+  --bs-btn-bg: #a8431f;
+  --bs-btn-border-color: #a8431f;
+  --bs-btn-hover-bg: #8c3818;
+  --bs-btn-hover-border-color: #8c3818;
+  --bs-btn-active-bg: #7d3016;
+  --bs-btn-active-border-color: #7d3016;
+  --bs-btn-disabled-bg: #a8431f;
+  --bs-btn-disabled-border-color: #a8431f;
+  --bs-btn-color: #fff;
+  min-height: 44px;
+  font-weight: 700;
+}
+.btn-outline-primary {
+  --bs-btn-color: #a8431f;
+  --bs-btn-border-color: #a8431f;
+  --bs-btn-hover-bg: #a8431f;
+  --bs-btn-hover-border-color: #a8431f;
+  --bs-btn-active-bg: #8c3818;
+  --bs-btn-disabled-color: #a8431f;
+  --bs-btn-disabled-border-color: #a8431f;
+  font-weight: 700;
+}
+.btn { min-height: 44px; }
+.btn-sm { min-height: 36px; }
+.icon-btn { width: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.form-control, .form-select { min-height: 44px; border-color: #8a7466; }
+:focus-visible { outline: 3px solid var(--jigi-soleil); outline-offset: 2px; box-shadow: 0 0 0 5px var(--jigi-brun); }
+
+.demo-banner { background: var(--jigi-soleil); color: var(--jigi-brun); font-size: 0.8125rem; font-weight: 700; text-align: center; padding: 0.375rem 0.75rem; }
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 3000; background: #fff; color: var(--jigi-terracotta); padding: 0.5rem 1rem; font-weight: 700; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.app-body { flex: 1; display: flex; min-height: 0; }
+.app-main { flex: 1; min-width: 0; display: flex; flex-direction: column; padding-bottom: 64px; }
+@media (min-width: 768px) { .app-main { padding-bottom: 0; } }
+.content { flex: 1; padding: 1rem; outline: none; }
+@media (min-width: 768px) { .content { padding: 1.25rem 1.5rem; } }
+.topbar { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1rem; background: #fff; border-bottom: 1px solid #e3d5bf; min-height: 56px; }
+@media (max-width: 767.98px) { .topbar { background: var(--jigi-brun); color: #fff; } .topbar .btn-outline-primary { --bs-btn-color: #fff; --bs-btn-border-color: #fff; } }
+.app-footer { padding: 0.75rem 1rem; text-align: center; }
+
+.sidebar { width: 232px; flex: none; background: var(--jigi-brun); color: #fff; flex-direction: column; padding: 1.125rem 0.75rem; gap: 0.25rem; }
+.brand-name { font-size: 1.125rem; color: #fff; }
+.topbar .brand-name { color: #fff; }
+.brand-tag { font-size: 0.6875rem; letter-spacing: 2px; color: var(--jigi-soleil); font-weight: 700; }
+.sidebar-link { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.875rem; }
+.sidebar-link:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.sidebar-link.active { background: var(--jigi-terracotta); font-weight: 700; }
+.sidebar-foot { margin-top: auto; font-size: 0.75rem; line-height: 1.4; }
+.sidebar-foot a { color: var(--jigi-soleil); }
+
+.tabbar { position: fixed; inset: auto 0 0 0; z-index: 1030; display: flex; background: #fff; border-top: 1px solid #e3d5bf; }
+.tabbar-link { flex: 1; min-height: 56px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--jigi-brun); text-decoration: none; background: none; border: 0; }
+.tabbar-link.active { color: var(--jigi-terracotta); box-shadow: inset 0 3px 0 var(--jigi-terracotta); }
+.menu-link { display: flex; align-items: center; min-height: 52px; padding: 0 0.875rem; background: #fff; border: 1px solid #e3d5bf; border-radius: 10px; color: var(--jigi-brun); font-weight: 700; text-decoration: none; }
+.menu-link.active { border-color: var(--jigi-terracotta); color: var(--jigi-terracotta); }
+
+.card { border-color: #e3d5bf; border-radius: 12px; }
+.table-jigi { --bs-table-striped-bg: #f8f1e6; }
+.table-jigi thead th { background: var(--jigi-brun); color: #fff; font-weight: 700; white-space: nowrap; }
+.sort-btn { all: unset; cursor: pointer; display: inline-flex; align-items: center; color: #fff; font-weight: 700; }
+.sort-btn:focus-visible { outline: 3px solid var(--jigi-soleil); outline-offset: 2px; }
+
+.badge-tone-success { background: #dcebdd; color: #25502f; }
+.badge-tone-neutral { background: var(--jigi-sable); color: var(--jigi-brun); border: 1px solid #cdb99a; }
+.badge-tone-danger { background: #f8e0de; color: #8f1d17; }
+.badge { font-weight: 700; }
+.amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stat-positive { color: #25502f; font-weight: 700; }
+.progress { height: 10px; background: var(--jigi-sable); }
+
+.login-page { min-height: 100vh; display: flex; flex-direction: column; }
+.login-split { flex: 1; display: flex; flex-direction: column; }
+.login-brand { background: var(--jigi-brun); color: #fff; padding: 2rem; display: none; }
+@media (min-width: 992px) { .login-split { flex-direction: row; } .login-brand { display: flex; flex-direction: column; gap: 1rem; width: 42%; padding: 3rem; } }
+.login-card { max-width: 420px; width: 100%; }
+
+/* Les textes « visually-hidden » (position absolue) doivent rester dans leur tableau défilant,
+   sinon ils élargissent la page entière sur mobile. */
+.table-responsive { position: relative; }
