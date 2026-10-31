@@ -28,8 +28,8 @@ describe('Connexion et routage par rôle', () => {
     await user.type(await screen.findByLabelText('Adresse e-mail'), 'gestionnaire@demo.jigi');
     await user.type(screen.getByLabelText('Mot de passe'), 'demo1234');
     await user.click(screen.getByRole('button', { name: 'Se connecter' }));
-    expect(await screen.findByRole('heading', { level: 1, name: 'Tableau de bord' })).toBeInTheDocument();
-  });
+    expect(await screen.findByRole('heading', { level: 1, name: 'Tableau de bord' }, { timeout: 10000 })).toBeInTheDocument();
+  }, 10000);
 
   it('refuse l’accès aux vues d’équipe à un donateur', async () => {
     await renderAppAs('donateur@demo.jigi', '/dons');

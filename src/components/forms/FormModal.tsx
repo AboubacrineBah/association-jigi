@@ -24,7 +24,7 @@ interface FormModalProps<TInput> {
   title: string;
   fields: readonly FieldDef[];
   initialValues: FormValues;
-  schema: z.ZodType<TInput, z.ZodTypeDef, unknown>;
+  schema: z.ZodType<TInput>;
   onSubmit: (input: TInput) => Promise<Result<unknown>>;
   onClose: () => void;
   submitLabel?: string;
@@ -32,7 +32,7 @@ interface FormModalProps<TInput> {
 }
 
 /** Résolveur RHF minimal : les messages d'erreur viennent du schéma Zod (en français). */
-export function resolverFor<TInput>(schema: z.ZodType<TInput, z.ZodTypeDef, unknown>): Resolver<FormValues> {
+export function resolverFor<TInput>(schema: z.ZodType<TInput>): Resolver<FormValues> {
   return async (values) => {
     const parsed = schema.safeParse(values);
     if (parsed.success) return { values, errors: {} };

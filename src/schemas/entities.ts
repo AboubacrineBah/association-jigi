@@ -103,7 +103,7 @@ export const donorSchema = z.object({
   city: z.string().trim(),
   country: z.string().trim(),
   notes: z.string().trim(),
-}) satisfies z.ZodType<DonorInput, z.ZodTypeDef, unknown>;
+}) satisfies z.ZodType<DonorInput>;
 
 export function donorValues(donor?: Donor): FormValues {
   return {
@@ -160,7 +160,7 @@ export const beneficiarySchema = z.object({
   contact: z.string().trim(),
   city: z.string().trim(),
   notes: z.string().trim(),
-}) satisfies z.ZodType<BeneficiaryInput, z.ZodTypeDef, unknown>;
+}) satisfies z.ZodType<BeneficiaryInput>;
 
 export function beneficiaryValues(beneficiary?: Beneficiary): FormValues {
   return {

@@ -6,6 +6,8 @@ Démonstration réalisée par [NexaWeb Mali](https://aboubacrinebah.github.io/ne
 
 ## Démarrage
 
+Prérequis : Node.js 22.12 ou plus (Vite 8 et Vitest 5).
+
 ```bash
 npm install
 npm run dev        # http://localhost:5173/association-jigi/
