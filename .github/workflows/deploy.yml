@@ -21,18 +21,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Vérifier la syntaxe et la sécurité du workflow
+        uses: raven-actions/actionlint@v2
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Auditer les dépendances npm
+        run: npm audit
       - run: npx tsc --noEmit
       - run: npm run lint
       - run: npm test
       - run: npm run build
         env:
           # URL de l'API Laravel (HTTPS). Laisser vide pour publier la démonstration avec l'API fictive.
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_API_URL: ${{ vars['VITE_API_URL'] || '' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -43,6 +47,27 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  site-check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérifier la disponibilité du site
+        env:
+          SITE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          curl --silent --show-error --fail --location \
+            --retry 5 --retry-all-errors --retry-delay 5 --max-time 30 \
+            --output /tmp/site-check.html "$SITE_URL"
+          grep -Fq '<title>Jigi Dons' /tmp/site-check.html
+      - name: Vérifier les liens du site publié
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress "${{ needs.deploy.outputs.page_url }}"
+          failIfEmpty: true
+          jobSummary: true

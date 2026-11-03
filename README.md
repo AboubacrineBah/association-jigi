@@ -4,6 +4,16 @@ Démonstration réalisée par [NexaWeb Mali](https://aboubacrinebah.github.io/ne
 (cahier des charges V2.0). Application web monopage **React + TypeScript strict + Bootstrap 5** qui consomme une
 **API Laravel** ; en attendant l'API, elle fonctionne avec une **API fictive en mémoire** (données fictives uniquement).
 
+## Captures d’écran
+
+### Tableau de bord
+
+![Tableau de bord de l’application Jigi Dons](public/screenshots/tableau-de-bord.jpg)
+
+### Suivi des dons
+
+![Liste des dons de l’application Jigi Dons](public/screenshots/dons.jpg)
+
 ## Démarrage
 
 Prérequis : Node.js 22.12 ou plus (Vite 8 et Vitest 5).
@@ -37,7 +47,8 @@ les erreurs de validation (422) renvoient `{ message, errors: { champ: [messages
 
 Dépôt dédié `association-jigi` → `https://aboubacrinebah.github.io/association-jigi/` (`base` de Vite =
 `/association-jigi/`, routage par hash). Le workflow `.github/workflows/deploy.yml` construit et publie le site
-(Paramètres › Pages › Source : « GitHub Actions »).
+(Paramètres › Pages › Source : « GitHub Actions »), vérifie la syntaxe et la sécurité des workflows et dépendances,
+puis contrôle la disponibilité HTTP et les liens du site publié.
 
 ## Structure
 
